@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove elements in DOM </title>
+</head>
+
+<body style="background-color: #212121; color: #d5cdcd;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    // add element in side the list : 
+
+    function addLanguage(lanName) {
+        const li = document.createElement('li');
+        li.innerHTML = lanName                             // this is complex for long project
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+    addLanguage("PHP")
+
+    // add element optimization 
+    function addOptiLanguage(lanName) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(lanName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('C++')
+    addOptiLanguage('golang')
+
+
+    // Edit element :
+    const secondlan = document.querySelector("li:nth-child(2)")
+    // secondlan.innerHTML = "Mojo"   
+
+    const newli = document.createElement("li")
+    newli.textContent = "Mojo"
+    secondlan.replaceWith(newli)
+
+    // edit with outerHTML : 
+    const firstlan = document.querySelector("li:first-child")
+    firstlan.outerHTML = '<li>java</li>'
+
+    //remove element :
+    const lastLan = document.querySelector("li:last-child")
+    lastLan.remove()
+</script>
+
+</html>

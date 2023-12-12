@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set Time out</title>
+</head>
+
+<body>
+    <h1>welcome, to my page</h1>
+    <button id="stop"> Stop </button>
+</body>
+<script>
+
+    // time in milisec, after 3sec print the vale.
+    setTimeout(function () {
+        console.log("krina");
+    }, 2000)
+
+
+    //change the text using setTimeout
+    const changeText = function () {
+        document.querySelector('h1').innerHTML = "best JS series"
+    }
+    const changeMe = setTimeout(changeText, 3000)
+
+
+    //clearTime out
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearTimeout(changeMe)      //stop the settime out 
+        console.log("STOPPED")
+    })
+
+    // setInterval :
+
+    // setInterval(function () {  
+    //     console.log("hello", Date.now());
+    // }, 2000);
+
+
+    //clearInterval :
+    const sayDate = function (str) {
+        console.log(str, Date.now());
+    }
+
+    const intervalId = setInterval(sayDate, 1000, "krina")
+    clearInterval(intervalId)     // stop the interval
+</script>
+
+</html>
